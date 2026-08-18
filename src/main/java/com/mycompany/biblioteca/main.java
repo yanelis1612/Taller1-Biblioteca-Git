@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Client> clients = new ArrayList<>();
+    static ArrayList<Book> books = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -79,6 +80,76 @@ public class Main {
 
     clients.remove(c);
     System.out.println("Client deleted successfully.");
+}
+    public static void createBook() {
+    System.out.println("--- Create Book ---");
+    System.out.print("Code: ");
+    String code = sc.nextLine();
+    System.out.print("Title: ");
+    String title = sc.nextLine();
+    System.out.print("Publication Year: ");
+    String publicationYear = sc.nextLine();
+    System.out.print("Author: ");
+    String author = sc.nextLine();
+
+    Book newBook = new Book(code, title, publicationYear, author);
+    books.add(newBook);
+
+    System.out.println("Book created successfully.");
+}
+    public static void listBooks() {
+    System.out.println("--- Book List ---");
+    if (books.isEmpty()) {
+        System.out.println("No books registered.");
+        return;
+    }
+    for (Book b : books) {
+        System.out.println("Code: " + b.getCode()
+            + " | Title: " + b.getTitle()
+            + " | Year: " + b.getPublicationYear()
+            + " | Author: " + b.getAuthor()
+            + " | Available: " + b.isAvailable());
+    }
+}
+    public static Book findBook(String code) {
+    for (Book b : books) {
+        if (b.getCode().equals(code)) {
+            return b;
+        }
+    }
+    return null;
+}
+    public static void updateBook() {
+    System.out.print("Enter Book Code to update: ");
+    String code = sc.nextLine();
+    Book b = findBook(code);
+
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+
+    System.out.print("New Title: ");
+    b.setTitle(sc.nextLine());
+    System.out.print("New Publication Year: ");
+    b.setPublicationYear(sc.nextLine());
+    System.out.print("New Author: ");
+    b.setAuthor(sc.nextLine());
+
+    System.out.println("Book updated successfully.");
+}
+    public static void deleteBook() {
+    System.out.print("Enter Book Code to delete: ");
+    String code = sc.nextLine();
+    Book b = findBook(code);
+
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+
+    books.remove(b);
+    System.out.println("Book deleted successfully.");
 }
 }
 
