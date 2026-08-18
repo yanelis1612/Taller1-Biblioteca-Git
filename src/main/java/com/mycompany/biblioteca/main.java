@@ -119,5 +119,24 @@ public class Main {
     }
     return null;
 }
+    public static void updateBook() {
+    System.out.print("Enter Book Code to update: ");
+    String code = sc.nextLine();
+    Book b = findBook(code);
+
+    if (b == null) {
+        System.out.println("Book not found.");
+        return;
+    }
+
+    System.out.print("New Title: ");
+    b.setTitle(sc.nextLine());
+    System.out.print("New Publication Year: ");
+    b.setPublicationYear(sc.nextLine());
+    System.out.print("New Author: ");
+    b.setAuthor(sc.nextLine());
+
+    System.out.println("Book updated successfully.");
+}
 }
 
