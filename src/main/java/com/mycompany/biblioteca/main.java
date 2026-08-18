@@ -11,8 +11,93 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        int option;
+    do {
+        System.out.println("\n===== LIBRARY SYSTEM =====");
+        System.out.println("1. Manage Clients");
+        System.out.println("2. Manage Books");
+        System.out.println("3. Manage Loans");
+        System.out.println("0. Exit");
+        System.out.print("Choose an option: ");
+        option = Integer.parseInt(sc.nextLine());
+
+        switch (option) {
+            case 1 -> clientMenu();
+            case 2 -> bookMenu();
+            case 3 -> loanMenu();
+            case 0 -> System.out.println("Goodbye!");
+            default -> System.out.println("Invalid option.");
+        }
+    } while (option != 0);
+}
+
+public static void clientMenu() {
+    int option;
+    do {
+        System.out.println("\n--- Client Menu ---");
+        System.out.println("1. Create Client");
+        System.out.println("2. List Clients");
+        System.out.println("3. Update Client");
+        System.out.println("4. Delete Client");
+        System.out.println("0. Back");
+        System.out.print("Choose an option: ");
+        option = Integer.parseInt(sc.nextLine());
+
+        switch (option) {
+            case 1 -> createClient();
+            case 2 -> listClients();
+            case 3 -> updateClient();
+            case 4 -> deleteClient();
+            case 0 -> System.out.println("Returning to main menu...");
+            default -> System.out.println("Invalid option.");
+        }
+    } while (option != 0);
+}
+
+public static void bookMenu() {
+    int option;
+    do {
+        System.out.println("\n--- Book Menu ---");
+        System.out.println("1. Create Book");
+        System.out.println("2. List Books");
+        System.out.println("3. Update Book");
+        System.out.println("4. Delete Book");
+        System.out.println("0. Back");
+        System.out.print("Choose an option: ");
+        option = Integer.parseInt(sc.nextLine());
+
+        switch (option) {
+            case 1 -> createBook();
+            case 2 -> listBooks();
+            case 3 -> updateBook();
+            case 4 -> deleteBook();
+            case 0 -> System.out.println("Returning to main menu...");
+            default -> System.out.println("Invalid option.");
+        }
+    } while (option != 0);
+}
+
+public static void loanMenu() {
+    int option;
+    do {
+        System.out.println("\n--- Loan Menu ---");
+        System.out.println("1. Register Loan");
+        System.out.println("2. Return Loan");
+        System.out.println("3. List Active Loans");
+        System.out.println("0. Back");
+        System.out.print("Choose an option: ");
+        option = Integer.parseInt(sc.nextLine());
+
+        switch (option) {
+            case 1 -> createLoan();
+            case 2 -> returnLoan();
+            case 3 -> listLoans();
+            case 0 -> System.out.println("Returning to main menu...");
+            default -> System.out.println("Invalid option.");
+        }
+    } while (option != 0);
+}
       
-    }
 
     public static void createClient() {
         System.out.println("--- Create Client ---");
