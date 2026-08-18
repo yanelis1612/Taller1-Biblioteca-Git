@@ -212,5 +212,24 @@ public class Main {
 
     System.out.println("Loan returned successfully.");
 }
+    public static void listLoans() {
+    System.out.println("--- Active Loans ---");
+    boolean found = false;
+
+    for (Loan l : loans) {
+        if (l.getStatus().equals("ACTIVE")) {
+            System.out.println("Loan ID: " + l.getId()
+                + " | Client: " + l.getLoanClient().getName()
+                + " | Book: " + l.getLoanBook().getTitle()
+                + " | Date: " + l.getDate()
+                + " | Status: " + l.getStatus());
+            found = true;
+        }
+    }
+
+    if (!found) {
+        System.out.println("No active loans.");
+    }
+}
 }
 
