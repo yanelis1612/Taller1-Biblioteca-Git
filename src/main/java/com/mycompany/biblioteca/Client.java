@@ -1,13 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.biblioteca;
 
-/**
- *
- * @author yanelis
- */
-public class Client {
-    
+public class Client extends Person {
+    private String Email;
+
+    public Client(String id, String name, String telephoneNumber, String email) {
+        super(id, name, telephoneNumber);
+        this.Email = email;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        this.Email = email;
+    }
 }
+    
+
