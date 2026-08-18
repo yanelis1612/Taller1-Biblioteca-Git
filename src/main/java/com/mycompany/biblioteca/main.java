@@ -48,5 +48,24 @@ public class Main {
     }
     return null;
 }
+    public static void updateClient() {
+    System.out.print("Enter Client ID to update: ");
+    String id = sc.nextLine();
+    Client c = findClient(id);
+
+    if (c == null) {
+        System.out.println("Client not found.");
+        return;
+    }
+
+    System.out.print("New Name: ");
+    c.setName(sc.nextLine());
+    System.out.print("New Phone: ");
+    c.setTelephoneNumber(sc.nextLine());
+    System.out.print("New Email: ");
+    c.setEmail(sc.nextLine());
+
+    System.out.println("Client updated successfully.");
+}
 }
 
