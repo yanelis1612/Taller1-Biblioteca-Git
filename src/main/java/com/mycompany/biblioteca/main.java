@@ -40,5 +40,13 @@ public class Main {
             + " | Email: " + c.getEmail());
     }
 }
+    public static Client findClient(String id) {
+    for (Client c : clients) {
+        if (c.getId().equals(id)) {
+            return c;
+        }
+    }
+    return null;
+}
 }
 
