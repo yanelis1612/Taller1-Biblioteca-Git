@@ -97,5 +97,19 @@ public class Main {
 
     System.out.println("Book created successfully.");
 }
+    public static void listBooks() {
+    System.out.println("--- Book List ---");
+    if (books.isEmpty()) {
+        System.out.println("No books registered.");
+        return;
+    }
+    for (Book b : books) {
+        System.out.println("Code: " + b.getCode()
+            + " | Title: " + b.getTitle()
+            + " | Year: " + b.getPublicationYear()
+            + " | Author: " + b.getAuthor()
+            + " | Available: " + b.isAvailable());
+    }
+}
 }
 
